@@ -1,4 +1,5 @@
 /*
+
 Julius Caesar protected his confidential information by encrypting it in a cipher. Caesar's cipher rotated every letter in a string by a fixed number, , making it unreadable by his enemies. Given a string, , and a number, , encrypt  and print the resulting string.
 
 Note: The cipher only encrypts letters; symbols, such as -, remain unencrypted.
@@ -10,6 +11,7 @@ The second line contains the unencrypted string, .
 The third line contains the integer encryption key, , which is the number of letters to rotate.
 
 https://www.hackerrank.com/challenges/caesar-cipher-1/problem
+
 */
 
 const caeserCipher = function(word,k) {
