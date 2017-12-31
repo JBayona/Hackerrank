@@ -14,7 +14,7 @@ https://www.hackerrank.com/challenges/reduced-string
 
 */
 
-function reduceString(str){
+function reduceString(str) {
   for(let i = 1; i < str.length; i++){
     if(str[i] === str[i-1]){
       str = str.substring(0, i-1) + str.substring(i+1);
