@@ -26,6 +26,48 @@ https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-
   }
 */
 
+
+// New Version
+
+/*
+  Insert Node at a given position in a linked list 
+  head can be NULL 
+  First element in the linked list is at position 0
+  Node is defined as
+  var Node = function(data) {
+    this.data = data;
+    this.next = null;
+  }
+*/
+
+// This is a "method-only" submission.
+// You only need to complete this method.
+
+function insert(head, data, position) {
+    let prev = head;
+    let newNode = new Node(data);
+    //If list is empty
+    if(!head) {
+        return newNode;
+    }
+    if(position === 0) {
+        newNode.next = head;
+        head = newNode;
+        return head;
+    } else {
+        while((position-1) > 0) {
+            prev = prev.next;
+            position--;
+        }
+        let next = prev.next;
+        newNode.next = next;
+        prev.next = newNode;
+        return head;
+    }
+}
+
+
+
 // This is a "method-only" submission.
 // You only need to complete this method.
 
