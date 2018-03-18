@@ -47,3 +47,21 @@ function removeDuplicates(head) {
     }
     return head;
 }
+
+//Opción 2
+
+function removeDuplicates(head) {
+    let currentVal = head.data;
+    let current = head;
+    let next_next = head;
+    while (current.next != null) {
+        /*Compare current node with the next node */
+        if (current.data == current.next.data) {
+            next_next = current.next.next;
+            current.next = next_next;
+        }
+        else // advance if no deletion
+           current = current.next;
+    }
+    return head;
+}
