@@ -100,3 +100,50 @@ function getListLength(head) {
     }
     return len;
 }
+
+//Opción 3
+//O(m log m + n log n)
+/*
+    Find merge point of two linked lists
+    Note that the head may be 'null' for the empty list.
+    Node is defined as
+    var Node = function(data) {
+        this.data = data;
+        this.next = null;
+    }
+*/
+
+// This is a "method-only" submission.
+// You only need to complete this method.
+
+function findMergeNode(headA, headB) {
+    let lenA = getListLength(headA); //O(m)
+    let lenB = getListLength(headB); //O(n)
+    /*Sacamos la distancia de diferencia entre ambas listas, caminamos una lista
+    con la diferencia y sabemos que despues ambas van a caminar en la misma velocidad
+    caminando simultaneamente sabemos que en un punto se van a intersectar y ese es
+    el valor que estamos buscando*/
+    let d = Math.abs(lenA - lenB);
+    for(let i = 0; i < d; i++) {
+        headB = headB.next;
+    }
+    
+    while(headA && headB) {
+        if(headA === headB) {
+            return headA.data;
+        }
+        headA = headA.next;
+        headB = headB.next;
+    }
+    return null; //no merging point
+}
+
+function getListLength(head) {
+    let len = 0;
+    let curr = head;
+    while(curr) {
+        len++;
+        curr = curr.next;
+    }
+    return len;
+}
