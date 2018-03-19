@@ -27,7 +27,7 @@ https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-
 // This is a "method-only" submission.
 // You only need to complete this method.
 
-//Opción 1
+//Opción 1 O(mn)
 function findMergeNode(headA, headB) {
     let lenA = getListLength(headA); //O(m)
     let lenB = getListLength(headB); //O(n)
@@ -43,6 +43,52 @@ function findMergeNode(headA, headB) {
         headA = headA.next;
     }
     return null; //Not merging point
+}
+
+function getListLength(head) {
+    let len = 0;
+    let curr = head;
+    while(curr) {
+        len++;
+        curr = curr.next;
+    }
+    return len;
+}
+
+//Opcion 2
+//O(m+n)
+
+/*
+    Find merge point of two linked lists
+    Note that the head may be 'null' for the empty list.
+    Node is defined as
+    var Node = function(data) {
+        this.data = data;
+        this.next = null;
+    }
+*/
+
+// This is a "method-only" submission.
+// You only need to complete this method.
+
+function findMergeNode(headA, headB) {
+    let lenA = getListLength(headA); //O(m)
+    let lenB = getListLength(headB); //O(n)
+    let set = new Set();
+    
+    for(let i = 0; i < lenB; i++) {
+        set.add(headB); //O(mlogn)
+        headB = headB.next;
+    }
+    
+    for(let i = 0; i < lenA; i++) { //O(nlogn)
+        if(set.has(headA)) {
+            return headA.data;
+        }
+        headA = headA.next;
+    }
+    return null; //Not merging point*/
+    //Total O(m logn + n logn)
 }
 
 function getListLength(head) {
