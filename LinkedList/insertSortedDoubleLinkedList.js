@@ -51,3 +51,33 @@ head = sortedInsert(head,6);
 head = sortedInsert(head,9);
 head = sortedInsert(head,10);
 console.log(head);
+
+/*function sortedInsert(head, data) {
+    let newNode = new Node(data);
+    let current = head;
+    let next = null;
+    let prev = null;
+    if(!head) {
+        head = newNode;
+        return head;
+    }
+    while(current) {
+      if(current.data <= newNode.data){
+        if(current.next && current.next.data >= data) {
+          //prev = current
+          next = current.next;
+          current.next = newNode;
+          newNode.prev = current;
+          newNode.next = next;
+          next.prev = newNode;
+          break;
+        } else if (!current.next) {
+          current.next = newNode;
+          newNode.prev = current;
+          break;
+        }
+      }
+      current = current.next;
+    }
+    return head;
+}*/
