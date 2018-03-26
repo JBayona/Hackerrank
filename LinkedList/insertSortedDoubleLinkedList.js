@@ -18,18 +18,25 @@ function sortedInsert(head, data) {
   }
   current = head;
   while(current) {
+    //Si nuestro nodo actual es mayor al que queremos insertar (significa que debe de insertarse antes de nuestro current)
     if(current.data >= data){
       let newNode = new Node(data);
       newNode.prev = current.prev;
       newNode.next = current;
-      current.prev = newNode; //Actualizamos al nuevo nodo
+      current.prev = newNode; //Actualizamos al nuevo nodo, nuestro current debe apuntar al nuevo creado
+      /*Si no hay mas nodos regresamos el nuevo nodo*/
       if(!newNode.prev) {
         return newNode;
       } else {
+        /*Si hay un nodo anterior al que agregamos, actualizamos
+        su next al nuevo nodo que acabamos de agregar*/
         newNode.prev.next = newNode;
         return head
       }
     }
+    /*Si no hay mas nodos y nuestro nodo es mayor al current y current ya no tiene mas nodos
+    debemos insertarlo despues de nuestro current
+    Ejemplo: 2-> null, y tenemos data=3, resultado 2->3 */
     if(!current.next){
       let newNode = new Node(data);
       newNode.prev = current;
