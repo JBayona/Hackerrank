@@ -6,6 +6,7 @@ You have an empty sequence, and you will be given  queries. Each query is one of
 2    -Delete the element present at the top of the stack.
 3    -Print the maximum element in the stack.
 
+https://www.hackerrank.com/challenges/maximum-element/problem
 */
 
 function Stack(){
