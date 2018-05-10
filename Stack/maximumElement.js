@@ -1,5 +1,4 @@
 /*
-
 You have an empty sequence, and you will be given  queries. Each query is one of these three types:
 
 1 x  -Push the element x into the stack.
