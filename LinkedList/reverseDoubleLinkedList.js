@@ -1,5 +1,4 @@
 /*
-
 You’re given the pointer to the head node of a doubly linked list. Reverse the order of the nodes in the list. The head node might be NULL to indicate that the list is empty.
 
 Input Format 
