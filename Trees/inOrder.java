@@ -8,7 +8,7 @@ Our hidden tester code passes the root node of a binary tree to your inOrder fun
 
 Constraints
 
-1 Nodes in the tree  500
+1 Nodes in the tree  5-0-0
 
 Output Format
 
