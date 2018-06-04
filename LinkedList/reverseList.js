@@ -13,6 +13,7 @@ Sample Input
 2 --> 1 --> 4 --> 5 --> NULL
 
 https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem
+
 */
 
 function ListNode(val, next) {
