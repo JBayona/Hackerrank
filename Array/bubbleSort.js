@@ -1,48 +1,37 @@
-function bubbleSort(array) {
-  let count = 0;
-  for(let i = 0; i < array.length-1; i++) {
-    for(let j = 0; j < array.length-1-i; j++) {
-      if(array[j] > array[j+1]) {
-        //Swap
-        let tmp = array[j];
-        array[j] = array[j+1];
-        array[j+1] = tmp;
-      }
-      count++;
-    }
-  }
-  console.log(count);
-  return array;
+/*
+https://www.hackerrank.com/challenges/ctci-bubble-sort
+O(N)
+
+*/
+
+function main(a) {
+    bubbleSort(a);
 }
 
-array = [2,6,10,3,1,8,9,7,5,4];
-//array = [1,2,3,4,5,6,7,8,9,10];
-console.log(bubbleSort(array));
+function bubbleSort(array){
+    var numberOfSwaps = 0;
+    for (var i = 0; i < array.length; i++) {
+        // Track number of elements swapped during a single array traversal
 
-// Optimización
+        for (var j = 0; j < array.length - 1; j++) {
+            // Swap adjacent elements if they are in decreasing order
+            if (array[j] > array[j + 1]) {
+                var tmp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = tmp;
+                numberOfSwaps++;
+            }
+        }
 
-// Va haciendo comparaciones y haciendo swap si el elemento
-// siguiente es menor que el anterior
-// La complejidad siempre será O(n^2)
-function bubbleSortOp(array) {
-  let swapped = true;
-  let count = 0;
-  for(let i = 0; i < array.length-1 && swapped; i++) {
-    swapped = false;
-    for(let j = 0; j < array.length-1-i; j++) {
-      if(array[j] > array[j+1]) {
-        //Swap
-        let tmp = array[j];
-        array[j] = array[j+1];
-        array[j+1] = tmp;
-        swapped = true;
-      }
-      count++;
+        // If no elements were swapped during a traversal, array is sorted
+        if (numberOfSwaps == 0) {
+            break;
+        }
     }
-  }
-  console.log(count);
-  return array;
+    console.log(`Array is sorted in ${numberOfSwaps} swaps.`);
+    console.log(`First Element: ${array[0]}`);
+    console.log(`Last Element: ${array[array.length-1]}`);
 }
 
-array = [2,6,10,3,1,8,9,7,5,4];
-console.log(bubbleSortOp(array));
+array = [2,6,3,1,7,4,8,9,10,5];
+console.log(main(array));
