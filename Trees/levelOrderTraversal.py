@@ -20,9 +20,7 @@ void levelOrder(Node * root) {
 }
 Constraints
 
-1 Nodes in the tree  500
-
-Output Format
+Nodes in the tree  500
 
 Print the values in a single line separated by a space.
 
