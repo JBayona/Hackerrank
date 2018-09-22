@@ -13,7 +13,7 @@ In level order traversal, we visit the nodes level by level from left to right. 
          4  
 For the above tree, the level order traversal is 1 -> 2 -> 5 -> 3 -> 6 -> 4.
 Input Format
-You are given a function,
+You are given a function:
 
 void levelOrder(Node * root) {
 
