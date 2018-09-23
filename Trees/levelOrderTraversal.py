@@ -16,8 +16,8 @@ Input Format
 You are given a function:
 
 void levelOrder(Node * root) {
-
 }
+
 Constraints
 
 Nodes in the tree  500
