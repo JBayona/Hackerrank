@@ -18,7 +18,7 @@ function findDeepestNode(node, level, obj) {
   if(node) {
     level++;
     if(level > obj.maxlvl) {
-    obj.maxlvl = level;
+      obj.maxlvl = level;
       obj.node = node;
     }
     findDeepestNode(node.left, level, obj);
