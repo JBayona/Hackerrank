@@ -25,6 +25,27 @@ function inorder(tree){
   }
 }
 
+// Opción 2
+// Time O(N)
+// Space O(H) - H height of the tree
+function inorderItr(root){
+  stack = [];
+  let node = root;
+  while(true){
+    if(node != null){
+      stack.push(node);
+      node = node.left;
+    } else {
+      if(stack.length === 0){
+        break;
+      }
+      node = stack.pop();
+      console.log(node.val);
+      node = node.right;
+    }
+  }
+}
+
 function preorder(tree){
   let stack = [];
   stack.push(tree);
