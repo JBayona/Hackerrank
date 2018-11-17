@@ -5,7 +5,9 @@ Invert a binary tree.
   2     7
  / \   / \
 1   3 6   9
+
 to
+
      4
    /   \
   7     2
