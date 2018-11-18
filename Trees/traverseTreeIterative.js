@@ -28,6 +28,7 @@ function inorder(tree){
 // Opción 2
 // Time O(N)
 // Space O(H) - H height of the tree
+// https://www.youtube.com/watch?v=nzmtCFNae9k
 function inorderItr(root){
   stack = [];
   let node = root;
