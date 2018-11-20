@@ -50,6 +50,7 @@ function inorderItr(root){
 /*
 Time complexity O(N) -- We visit every node once
 Space complexity O(H) = O(N) - Worst case we puth them all nodes into the stack
+https://www.youtube.com/watch?v=elQcrJrfObg
 */
 function preorderItr(root) {
 
