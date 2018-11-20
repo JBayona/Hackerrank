@@ -47,6 +47,42 @@ function inorderItr(root){
   }
 }
 
+/*
+Time complexity O(N) -- We visit every node once
+Space complexity O(H) = O(N) - Worst case we puth them all nodes into the stack
+*/
+function preorderItr(root) {
+
+  if(!root) {
+   return null;
+  }
+
+  let node = root;
+  let stack = [];
+  stack.push(root);
+  
+  while(stack.length) {
+    let current = stack.pop();
+    console.log(current.val);
+    if(current.right) {
+      stack.push(current.right);
+    }
+    if(current.left) {
+      stack.push(current.left);
+    }
+  }
+}
+
+/*
+       10
+    5       19
+ 2    11  -2   6
+   8
+*/
+
+tree = new TreeNode(10, new TreeNode(5, new TreeNode(2, null, new TreeNode(8)), new TreeNode(11)), new TreeNode(19, new TreeNode(-2), new TreeNode(6)));
+console.log(preorderItr(tree));
+
 function preorder(tree){
   let stack = [];
   stack.push(tree);
