@@ -20,7 +20,6 @@ Sample Output
 0
 1
 */
-
 /*
     Compare two Linked Lists A and B
     Return 1 if they are identical and 0 if they are not.
