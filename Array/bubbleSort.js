@@ -1,8 +1,7 @@
 /*
 https://www.hackerrank.com/challenges/ctci-bubble-sort
 O(N)
-
-*/
+.*/
 
 function main(a) {
     bubbleSort(a);
