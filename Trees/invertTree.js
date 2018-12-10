@@ -5,9 +5,7 @@ Invert a binary tree.
   2     7
  / \   / \
 1   3 6   9
-
 to
-
      4
    /   \
   7     2
@@ -21,6 +19,44 @@ function TreeNode(val, left, right) {
   this.left = left || null;
   this.right = right || null;
 }
+
+var invertTree = function(root) {
+  // Base case
+  if(!root) {
+      return null;
+  };
+  // This is to avoid override changes
+  let tmp = root.left;
+  root.left = invertTree(root.right);
+  root.right = invertTree(tmp);
+  return root;
+};
+
+// Stack
+// Iterative O(N) space and time
+var invertTree = function(root) {
+  if(!root) {
+      return root;
+  }
+  
+  let stack = [];
+  stack.push(root);
+  while(stack.length) {
+    let current = stack.pop();
+    let left = current.left || null;
+    current.left = current.right;
+    current.right = left;
+    
+    if(current.left) {
+        stack.push(current.left);
+    }
+    if(current.right) {
+        stack.push(current.right);
+    }
+  }
+  
+  return root;
+};
 
 var invertTree = function(root) {
   if(!root) return root;
