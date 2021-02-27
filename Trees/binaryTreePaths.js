@@ -22,15 +22,17 @@ var binaryTreePaths = function(root) {
 };
 
 function dfs(node, helper, result){
-    if(node) {
-        helper.push(node.val);
-        if(!node.left && !node.right){
-            result.push(helper.join('->'));
-            helper = []
-        }
-        dfs(node.left, helper.concat(), result);
-        dfs(node.right, helper.concat(), result);
-    }
+  if(!node) {
+    return;
+  }
+  // Check whether the node is a leaf node
+  helper.push(node.val);
+  if(!node.left && !node.right){
+    result.push(helper.join('->'));
+    helper = []
+  }
+  dfs(node.left, helper.concat(), result);
+  dfs(node.right, helper.concat(), result);
 }
 
 // Opción 2
@@ -49,14 +51,16 @@ var binaryTreePaths = function(root) {
 };
 
 function dfs(node, helper, result){
-    if(node) {
-        helper.push(node.val);
-        if(!node.left && !node.right){
-            result.push(helper.join('->'));
-        }
-        dfs(node.left, [...helper], result);
-        dfs(node.right,[...helper], result);
-    }
+  if(!node) {
+    return;
+  }
+  helper.push(node.val);
+  // Check if we have a leaf node
+  if(!node.left && !node.right){
+    result.push(helper.join('->'));
+  }
+  dfs(node.left, [...helper], result);
+  dfs(node.right,[...helper], result);
 }
 
 tree = new Node(1, new Node(2, null, new Node(5)), new Node(3));
