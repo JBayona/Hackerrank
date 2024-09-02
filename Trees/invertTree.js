@@ -20,76 +20,51 @@ function TreeNode(val, left, right) {
   this.right = right || null;
 }
 
-var invertTree = function(root) {
-  // Base case
-  if(!root) {
-      return null;
-  };
-  // This is to avoid override changes
-  let tmp = root.left;
-  root.left = invertTree(root.right);
-  root.right = invertTree(tmp);
+// Recursion
+var invertTree = function (root) {
+  if (!root) {
+    return null;
+  }
+  let left = invertTree(root.left);
+  let right = invertTree(root.right);
+  root.left = right;
+  root.right = left;
   return root;
 };
 
-// Stack
-// Iterative O(N) space and time
-var invertTree = function(root) {
-  if(!root) {
-      return root;
+// Iterative BFS
+var invertTree = function (root) {
+  if (!root) {
+    return null;
   }
-  
-  let stack = [];
-  stack.push(root);
-  while(stack.length) {
-    let current = stack.pop();
-    let left = current.left || null;
-    current.left = current.right;
-    current.right = left;
-    
-    if(current.left) {
-        stack.push(current.left);
+  let queue = [];
+  queue.push(root);
+
+  while (queue.length) {
+    let len = queue.length;
+    for (let i = 0; i < len; i++) {
+      let node = queue.shift();
+      let left = node.left;
+      let right = node.right;
+      // Invert
+      node.left = right;
+      node.right = left;
+      if (node.left) {
+        queue.push(node.left);
+      }
+
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
-    if(current.right) {
-        stack.push(current.right);
-    }
   }
-  
   return root;
 };
 
-var invertTree = function(root) {
-  if(!root) return root;
-  let left;
-  let right;
-  if(root.left) {
-     left = invertTree(root.left);
-  }
-  if(root.right) {
-    right = invertTree(root.right);
-  }
-  root.left = right || null;
-  root.right = left || null;
-  return root;
-};
-
-tree = new TreeNode(4, new TreeNode(2, new TreeNode(1), new TreeNode(3)), new TreeNode(7, new TreeNode(6), new TreeNode(9)));
+tree = new TreeNode(
+  4,
+  new TreeNode(2, new TreeNode(1), new TreeNode(3)),
+  new TreeNode(7, new TreeNode(6), new TreeNode(9))
+);
 //tree = new TreeNode(1,new TreeNode(2));
 console.log(invertTree(tree));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
