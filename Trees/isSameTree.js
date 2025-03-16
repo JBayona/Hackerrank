@@ -20,6 +20,23 @@ https://leetcode.com/problems/same-tree/description/
  * @return {boolean}
  */
 
+// Option 1
+var isSameTree = function(p, q) {
+    // Both are null
+    if (!p && !q) {
+        return true;
+    }
+    // One of those are null
+    if (!p || !q) {
+        return false;
+    }
+    if (p.val !== q.val) {
+        return false;
+    }
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+};
+
+// Option 2
  var isSameTree = function(p, q) {
     return checkTree(p,q);
 };
